@@ -3,8 +3,8 @@
 #include <WebSocketsServer.h>
 
 
-const char* ssid = "FrBoHHLA";
-const char* pwd = "Josefine1";
+const char* ssid = "ssid";
+const char* pwd = "pwd";
 int clients = 0;
 bool setupMode = false;
 bool wsError = false;
