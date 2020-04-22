@@ -33,7 +33,6 @@ void setup() {
 
   socketSetup();
   Serial.println("Files in SPIFFS");
-  listAllFiles();
   Serial.println("---------------");
   Serial.println(xPortGetCoreID());
     xTaskCreatePinnedToCore(

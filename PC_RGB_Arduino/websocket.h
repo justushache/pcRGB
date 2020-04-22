@@ -1,7 +1,6 @@
 
 #include <WiFi.h>
 #include <WebSocketsServer.h>
-#include <vector>
 
 
 const char* ssid = "FrBoHHLA";
