@@ -97,7 +97,6 @@ if (lastP) {
     beginShape()
      vertex(lastP.x,lastP.y,lastP.z)
      vertex(p.x,p.y,p.z)
-     vertex(camPos.x,camPos.y,camPos.z)
     endShape()
   }
 }
@@ -291,8 +290,8 @@ function calculateMouseLine(){
   //now we need to add the mouse cursor component.
 
   //when a line is drawn through a point on the screen it has a certain angle to the line throug the middle of the screen. we will divide this angle in phi (x) and theta (y)
-  mousePhi = asin((mouseX- width / 2)/-DEFAULT_Z*0.9)
-  mouseTheta = -asin((mouseY- height / 2)/-DEFAULT_Z*0.9)
+  mousePhi = atan((mouseX- width / 2)/-DEFAULT_Z)
+  mouseTheta = -atan((mouseY- height / 2)/-DEFAULT_Z)
   
   //create a new direction vector, which adds our mouse phi and theta to the already calculated cam direction phi and theta
 
