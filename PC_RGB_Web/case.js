@@ -35,13 +35,15 @@ class Case {
   }
 
 
-  intersection(l, lPos, camPos) {
+  intersection(lineDirection, lineStart, camPos) {
     let minp
     let mind = 10000000000;
+
+    // this will run through all plates in the case and will check, which plate is nearest, if any
     this.plates.forEach(function(pl) {
-      let p = pl.intersection(l, lPos)
-      if (p) {
-        if (p5.Vector.sub(p, camPos).mag() < mind) {
+      let p = pl.intersection(lineDirection, lineStart)
+      if (p) {// intersection point is found
+        if (p5.Vector.sub(p, camPos).mag() < mind) {// the distance between camera and the point of intersection is smaller than the last match
           mind = p5.Vector.sub(p, camPos).mag()
           minp = p
         }

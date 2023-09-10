@@ -5,7 +5,8 @@ class helper{
     
   }  
   
-  static intersection(l,lPos,pt1,pt2,pt3){
+  // caluculates the intersection vector between a line defines by line start and direciton and a triangle defined by three points
+  static intersection(lineDirection,linePosition,pt1,pt2,pt3){
         
     let v1 = p5.Vector.sub(pt2,pt3) //edge 1 of the triangle
     let v2 = p5.Vector.sub(pt3,pt1) //edge 2 of the triangle
@@ -14,8 +15,10 @@ class helper{
     let n = p5.Vector.cross(v1,v2) 
     n.normalize()  //n is the normal vector to the plane
     let d = n.x*pt2.x+n.y*pt2.y+n.z*pt2.z // the equation of a plane is a*x+b*y+c*z=d
-    let h = (d-n.x*lPos.x-n.y*lPos.y-n.z*lPos.z)/(n.x*l.x+n.y*l.y+n.z*l.z)
-    let p = createVector(l.x*h+lPos.x,l.y*h+lPos.y,l.z*h+lPos.z) // the point of intersection
+
+    let h = (d-n.x*linePosition.x-n.y*linePosition.y-n.z*linePosition.z)/(n.x*lineDirection.x+n.y*lineDirection.y+n.z*lineDirection.z) // calculate by which value you have to multiply the line Direction to get to the plane from the line start
+
+    let p = createVector(lineDirection.x*h+linePosition.x,lineDirection.y*h+linePosition.y,lineDirection.z*h+linePosition.z) // the point of intersection
     
 //check if point is in triangle
     
